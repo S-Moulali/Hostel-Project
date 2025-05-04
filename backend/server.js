@@ -5,7 +5,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const hostelRoutes = require('./routes/hostels');
 const reviewRoutes = require('./routes/reviews');
-
+const uploadRoutes = require('./routes/upload')
 require('dotenv').config();
 
 const app = express();
@@ -18,6 +18,8 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/hostels', hostelRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/upload', uploadRoutes);
+
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
